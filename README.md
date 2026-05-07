@@ -9,15 +9,26 @@
 
 ## Table of Contents
 
-- [Features](#features)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
-- [Demo: Proving Lamport Ordering](#demo-proving-lamport-ordering)
-- [Running Tests](#running-tests)
-- [Project Structure](#project-structure)
-- [Team Roles](#team-roles)
-- [References](#references)
+- [DEAN — Decentralized Emergency Alert Network](#dean--decentralized-emergency-alert-network)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Architecture](#architecture)
+    - [Communication Flow](#communication-flow)
+  - [Prerequisites](#prerequisites)
+  - [Quick Start](#quick-start)
+    - [1. Start the Naming Server](#1-start-the-naming-server)
+    - [2. Start the Central Monitor](#2-start-the-central-monitor)
+    - [3. Start Sensor Clients](#3-start-sensor-clients)
+    - [Interactive Commands](#interactive-commands)
+    - [Sensor Options](#sensor-options)
+  - [Demo: Proving Lamport Ordering](#demo-proving-lamport-ordering)
+    - [Setup](#setup)
+    - [Trigger Alerts](#trigger-alerts)
+    - [Expected Result](#expected-result)
+  - [Running Tests](#running-tests)
+  - [Project Structure](#project-structure)
+  - [Team Roles](#team-roles)
+  - [References](#references)
 
 ---
 
@@ -211,8 +222,6 @@ python3 -m unittest tests.test_integration -v
 │   └── 2026-05-06_naming_server_01.md
 ├── README.md
 ├── INSTRUCTION.md            # Detailed usage & demo guide
-├── DEAN_Project_Context.md   # Full project specification
-├── AGENTS.md                 # Agent development guide
 └── requirements.txt          # Empty (standard library only)
 ```
 
@@ -233,9 +242,7 @@ python3 -m unittest tests.test_integration -v
 ## References
 
 - `INSTRUCTION.md` — Step-by-step usage and troubleshooting
-- `DEAN_Project_Context.md` — Full specification, architecture diagram, and grading rubric
 - `docs/message_protocol.md` — Concise protocol reference
-- `AGENTS.md` — Development guide for AI coding agents
 
 ---
 
