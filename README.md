@@ -25,7 +25,6 @@
     - [Setup](#setup)
     - [Trigger Alerts](#trigger-alerts)
     - [Expected Result](#expected-result)
-  - [Running Tests](#running-tests)
   - [Project Structure](#project-structure)
   - [Team Roles](#team-roles)
   - [References](#references)
