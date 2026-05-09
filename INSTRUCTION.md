@@ -5,26 +5,6 @@
 - **Python 3.10** or newer
 - **No external dependencies** — the project uses only the Python standard library
 
-## Running Tests
-
-Run the full test suite before starting the system:
-
-```bash
-python3 -m unittest discover -s tests -v
-```
-
-Run a specific test module:
-
-```bash
-python3 -m unittest tests.test_naming -v
-python3 -m unittest tests.test_lamport -v
-python3 -m unittest tests.test_message_protocol -v
-python3 -m unittest tests.test_network -v
-python3 -m unittest tests.test_auction_server -v
-python3 -m unittest tests.test_bidder_client -v
-python3 -m unittest tests.test_integration -v
-```
-
 ## Architecture Overview
 
 ```

@@ -233,20 +233,6 @@ python3 bidder_client.py \
 
 ---
 
-## Testing
-
-`tests/test_bidder_client.py` covers:
-- Initialization defaults
-- Naming Server lookup (mocked)
-- Alert sending with clock increment
-- Heartbeat loop periodic sending
-- ACK / Emergency Sequence / Status Update / Error handling
-- Simulated lag (`time.sleep` mocked)
-- Input loop alert trigger and quit
-- Graceful shutdown
-
----
-
 ## Integration with Other Members
 
 - **Member 1 (Registry Architect):** Uses the Naming Server to resolve `emergency.monitor.main` before connecting.

@@ -258,15 +258,6 @@ def broadcast_message(connections, message) -> list[tuple[address, Exception]]:
 
 ---
 
-## Testing
-
-- `tests/test_message_protocol.py` — Builder round-trips, validation rejection, physical time generation.
-- `tests/test_network.py` — Partial read reassembly, broadcast to multiple connections, broadcast failure collection, socket creation mocks.
-
-A `FakeSocket` class is used to mock socket behavior without real TCP connections.
-
----
-
 ## Integration with Other Members
 
 - **Member 1 (Registry Architect):** Uses `MessageConnection` and `accept_connection` in `naming_server.py`.

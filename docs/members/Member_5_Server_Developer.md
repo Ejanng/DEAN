@@ -285,27 +285,6 @@ def shutdown(self) -> None:
 
 ---
 
-## Testing
-
-`tests/test_auction_server.py` covers:
-- Initialization defaults
-- Naming Server registration (mocked)
-- Alert handling (clock, queue, log, ACK, broadcast)
-- Multiple alert ordering by Lamport timestamp
-- Heartbeat handling
-- Status broadcast to multiple sensors
-- Sensor connection tracking (add/remove)
-- Graceful shutdown
-
-`tests/test_integration.py` covers end-to-end scenarios:
-- Alert → ACK + Emergency Sequence
-- Multiple alerts with different Lamport timestamps
-- Sensor Client sending alert to monitor
-- Heartbeat processing without error
-- Status broadcast reaching multiple clients
-
----
-
 ## Integration with Other Members
 
 - **Member 1 (Registry Architect):** Registers with the Naming Server at startup; sensors use the Naming Server to find this monitor.

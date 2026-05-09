@@ -9,9 +9,7 @@
 1. Open a terminal in the project root.
 2. Run the test suite:
 
-```bash
-python3 -m unittest discover -s tests -v
-```
+
 
 ## Current Milestone
 

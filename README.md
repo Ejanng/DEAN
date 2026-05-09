@@ -174,28 +174,6 @@ All sensors display the **same ordered sequence**, demonstrating distributed agr
 
 ---
 
-## Running Tests
-
-Run the full test suite:
-
-```bash
-python3 -m unittest discover -s tests -v
-```
-
-Run a specific module:
-
-```bash
-python3 -m unittest tests.test_naming -v
-python3 -m unittest tests.test_lamport -v
-python3 -m unittest tests.test_message_protocol -v
-python3 -m unittest tests.test_network -v
-python3 -m unittest tests.test_auction_server -v
-python3 -m unittest tests.test_bidder_client -v
-python3 -m unittest tests.test_integration -v
-```
-
----
-
 ## Project Structure
 
 ```
@@ -208,14 +186,6 @@ python3 -m unittest tests.test_integration -v
 ├── auction_server.py         # Central Monitoring server
 ├── bidder_client.py          # Interactive Sensor clients
 ├── utils.py                  # Logging, timestamps, alert IDs
-├── tests/
-│   ├── test_naming.py
-│   ├── test_lamport.py
-│   ├── test_message_protocol.py
-│   ├── test_network.py
-│   ├── test_auction_server.py
-│   ├── test_bidder_client.py
-│   └── test_integration.py
 ├── docs/
 │   ├── message_protocol.md
 │   ├── setup_instructions.md

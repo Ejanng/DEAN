@@ -204,25 +204,7 @@ Physical time (NTP) is unreliable in distributed systems. Lamport Logical Clocks
 
 ### 5.1 Test Suite
 
-We wrote 57 unit and integration tests covering all modules:
-
-| Module | Tests | Focus |
-|--------|-------|-------|
-| `test_naming.py` | 6 | Registry CRUD, server request handling |
-| `test_lamport.py` | 4 | Clock rules, tie-breaking, priority keys |
-| `test_message_protocol.py` | 5 | Builders, validation, round-trips |
-| `test_network.py` | 9 | Partial reads, broadcast, socket wrappers |
-| `test_auction_server.py` | 11 | Alert handling, ACK, broadcasts, shutdown |
-| `test_bidder_client.py` | 13 | Input loop, heartbeats, lag simulation |
-| `test_integration.py` | 5 | End-to-end alert flow, Lamport ordering |
-
-**Result:** All 57 tests pass with 0 skips.
-
-```bash
-$ python3 -m unittest discover -s tests -v
-Ran 57 tests in 5.389s
-OK
-```
+We wrote comprehensive unit and integration tests covering all modules, including registry CRUD, Lamport clock rules, message validation, partial TCP reads, alert handling, heartbeat loops, and end-to-end sensor-to-monitor flows. All tests pass with 0 skips.
 
 ### 5.2 Integration Tests
 

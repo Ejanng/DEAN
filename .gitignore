@@ -5,3 +5,4 @@ GITHUB_DESCRIPTION.md
 __pycache__/*
 *.pdf
 */__pycache__/*
+tests/*

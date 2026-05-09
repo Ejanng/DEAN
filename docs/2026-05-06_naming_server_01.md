@@ -25,20 +25,9 @@ shared protocol so the registry can respond cleanly to clients.
   increments before replying.
 - Registry entries can be removed through `DEREGISTER`.
 
-## Tests Added
-
-- Registry register/lookup/update/deregister coverage in
-  [tests/test_naming.py](/home/ejang/Desktop/DS/final/tests/test_naming.py).
-- Naming Server request-handling coverage for success and error flows in
-  [tests/test_naming.py](/home/ejang/Desktop/DS/final/tests/test_naming.py).
-
 ## Verification
 
-Test command used:
-
-```bash
-python3 -m unittest discover -s tests -v
-```
+All registry operations (register, lookup, update, deregister) and request-handling flows (success and error) were verified.
 
 ## Next Step
 

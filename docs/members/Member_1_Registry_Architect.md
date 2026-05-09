@@ -178,16 +178,6 @@ The Naming Server never crashes on malformed input. Instead:
 
 ---
 
-## Testing
-
-Unit tests in `tests/test_naming.py` cover:
-- Register, lookup, deregister lifecycle
-- Duplicate registration updates
-- Invalid port rejection
-- Full request/response cycles through `NamingServer.handle_request()`
-
----
-
 ## Integration with Other Members
 
 - **Member 5 (Server Developer):** The Central Monitor calls `_register_with_naming_server()` at startup to insert its address into the registry.

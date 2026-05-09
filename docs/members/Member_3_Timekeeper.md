@@ -229,16 +229,6 @@ This produces a deterministic, globally agreed-upon ordering of all alerts.
 
 ---
 
-## Testing
-
-`tests/test_lamport.py` covers:
-- Clock rules 1, 2, and 3
-- `receive_event` with negative timestamps (rejected)
-- Tie-breaking with `sensor_id`
-- Priority key matching heap order
-
----
-
 ## Integration with Other Members
 
 - **Member 5 (Server Developer):** The Central Monitor imports `LamportClock`, `alert_priority_key`, and `event_sort_key` to maintain its queue and broadcast ordered sequences.
