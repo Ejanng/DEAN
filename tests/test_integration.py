@@ -7,11 +7,11 @@ import time
 import unittest
 from unittest import mock
 
-from central_monitor import CentralMonitor
+from auction_server import CentralMonitor
 from lamport_clock import LamportClock
 from message_protocol import build_alert_message, build_heartbeat_message
 from network_layer import create_client_connection
-from sensor_client import SensorClient
+from bidder_client import SensorClient
 
 
 class IntegrationTests(unittest.TestCase):

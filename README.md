@@ -55,7 +55,7 @@
          | v
 +----------------------+      +--------------------+
 | Central Monitoring   |<---->|  Sensor Clients    |
-| (central_monitor.py) |ALERTS| (sensor_client.py) |
+| (auction_server.py) |ALERTS| (bidder_client.py) |
 |  port 9000           |      |  - sensor_01       |
 |                      |      |  - sensor_02       |
 +----------------------+      |  - sensor_03       |
@@ -88,7 +88,7 @@ python3 naming_server.py
 ### 2. Start the Central Monitor
 
 ```bash
-python3 central_monitor.py
+python3 auction_server.py
 ```
 
 You should see a log confirming registration with the Naming Server.
@@ -98,9 +98,9 @@ You should see a log confirming registration with the Naming Server.
 Open one terminal per sensor:
 
 ```bash
-python3 sensor_client.py --id sensor_01 --location "Building A, Floor 1"
-python3 sensor_client.py --id sensor_02 --location "Building A, Floor 2"
-python3 sensor_client.py --id sensor_03 --location "Building A, Floor 3"
+python3 bidder_client.py --id sensor_01 --location "Building A, Floor 1"
+python3 bidder_client.py --id sensor_02 --location "Building A, Floor 2"
+python3 bidder_client.py --id sensor_03 --location "Building A, Floor 3"
 ```
 
 ### Interactive Commands
@@ -141,16 +141,16 @@ Start the Naming Server, Monitor, and three sensors. Add `--lag` to the third se
 python3 naming_server.py
 
 # Terminal 2
-python3 central_monitor.py
+python3 auction_server.py
 
 # Terminal 3
-python3 sensor_client.py --id sensor_01 --location "Floor 1"
+python3 bidder_client.py --id sensor_01 --location "Floor 1"
 
 # Terminal 4
-python3 sensor_client.py --id sensor_02 --location "Floor 2"
+python3 bidder_client.py --id sensor_02 --location "Floor 2"
 
 # Terminal 5
-python3 sensor_client.py --id sensor_03 --location "Floor 3" --lag
+python3 bidder_client.py --id sensor_03 --location "Floor 3" --lag
 ```
 
 ### Trigger Alerts
@@ -189,8 +189,8 @@ python3 -m unittest tests.test_naming -v
 python3 -m unittest tests.test_lamport -v
 python3 -m unittest tests.test_message_protocol -v
 python3 -m unittest tests.test_network -v
-python3 -m unittest tests.test_central_monitor -v
-python3 -m unittest tests.test_sensor_client -v
+python3 -m unittest tests.test_auction_server -v
+python3 -m unittest tests.test_bidder_client -v
 python3 -m unittest tests.test_integration -v
 ```
 
@@ -205,16 +205,16 @@ python3 -m unittest tests.test_integration -v
 ├── message_protocol.py       # JSON message builders & validation
 ├── network_layer.py          # TCP socket helpers & broadcast
 ├── naming_server.py          # Full Naming Server implementation
-├── central_monitor.py        # Central Monitoring server
-├── sensor_client.py          # Interactive Sensor clients
+├── auction_server.py         # Central Monitoring server
+├── bidder_client.py          # Interactive Sensor clients
 ├── utils.py                  # Logging, timestamps, alert IDs
 ├── tests/
 │   ├── test_naming.py
 │   ├── test_lamport.py
 │   ├── test_message_protocol.py
 │   ├── test_network.py
-│   ├── test_central_monitor.py
-│   ├── test_sensor_client.py
+│   ├── test_auction_server.py
+│   ├── test_bidder_client.py
 │   └── test_integration.py
 ├── docs/
 │   ├── message_protocol.md
@@ -234,8 +234,8 @@ python3 -m unittest tests.test_integration -v
 | 1 | Registry Architect (Naming) | `naming_server.py` |
 | 2 | Middleware Engineer | `network_layer.py`, `message_protocol.py` |
 | 3 | Timekeeper (Synchronization) | `lamport_clock.py` |
-| 4 | Client Developer | `sensor_client.py` |
-| 5 | Server Developer & Integrator | `central_monitor.py` |
+| 4 | Client Developer | `bidder_client.py` |
+| 5 | Server Developer & Integrator | `auction_server.py` |
 
 ---
 

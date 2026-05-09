@@ -4,7 +4,7 @@ import socket
 import unittest
 from unittest import mock
 
-from central_monitor import CentralMonitor
+from auction_server import CentralMonitor
 from lamport_clock import LamportClock
 from message_protocol import (
     ACK,
@@ -201,7 +201,7 @@ class CentralMonitorTests(unittest.TestCase):
         self.assertTrue(fake_socket.closed)
         self.assertIsNone(monitor._server_socket)
 
-    @mock.patch("central_monitor.create_client_connection")
+    @mock.patch("auction_server.create_client_connection")
     def test_register_with_naming_server(self, mock_create: mock.Mock) -> None:
         monitor = CentralMonitor()
         fake_naming_socket = FakeSocket(

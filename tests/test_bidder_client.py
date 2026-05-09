@@ -4,7 +4,7 @@ import json
 import unittest
 from unittest import mock
 
-from sensor_client import SensorClient
+from bidder_client import SensorClient
 from lamport_clock import LamportClock
 from message_protocol import (
     ACK,
@@ -63,7 +63,7 @@ class SensorClientTests(unittest.TestCase):
         self.assertFalse(client.lag)
         self.assertIsInstance(client.clock, LamportClock)
 
-    @mock.patch("sensor_client.create_client_connection")
+    @mock.patch("bidder_client.create_client_connection")
     def test_lookup_monitor_address(self, mock_create: mock.Mock) -> None:
         lookup_response = encode_message(
             {
@@ -84,7 +84,7 @@ class SensorClientTests(unittest.TestCase):
         self.assertEqual(address, ("127.0.0.1", 9000))
         self.assertGreater(client.clock.time, 0)
 
-    @mock.patch("sensor_client.create_client_connection")
+    @mock.patch("bidder_client.create_client_connection")
     def test_connect_to_monitor(self, mock_create: mock.Mock) -> None:
         fake_socket = FakeSocket()
         fake_conn = MessageConnection(
@@ -192,7 +192,7 @@ class SensorClientTests(unittest.TestCase):
         self.assertTrue(fake_socket.closed)
         self.assertTrue(client._shutdown_event.is_set())
 
-    @mock.patch("sensor_client.time.sleep")
+    @mock.patch("bidder_client.time.sleep")
     def test_simulated_lag_sleeps_before_send(self, mock_sleep: mock.Mock) -> None:
         fake_socket = FakeSocket()
         conn = MessageConnection(

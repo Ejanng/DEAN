@@ -42,7 +42,7 @@ python3 -m unittest discover -s tests -v
 
 ## Next Step
 
-Implement `central_monitor.py` so it can:
+Implement `auction_server.py` so it can:
 
 - register itself with the Naming Server at startup
 - accept multiple sensor connections

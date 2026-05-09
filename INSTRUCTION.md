@@ -20,8 +20,8 @@ python3 -m unittest tests.test_naming -v
 python3 -m unittest tests.test_lamport -v
 python3 -m unittest tests.test_message_protocol -v
 python3 -m unittest tests.test_network -v
-python3 -m unittest tests.test_central_monitor -v
-python3 -m unittest tests.test_sensor_client -v
+python3 -m unittest tests.test_auction_server -v
+python3 -m unittest tests.test_bidder_client -v
 python3 -m unittest tests.test_integration -v
 ```
 
@@ -35,7 +35,7 @@ python3 -m unittest tests.test_integration -v
          | v
 +----------------------+      +--------------------+
 | Central Monitoring   |<---->|  Sensor Clients    |
-| (central_monitor.py) |ALERTS| (sensor_client.py) |
+| (auction_server.py) |ALERTS| (bidder_client.py) |
 |  port 9000           |      |  - sensor_01       |
 +----------------------+      |  - sensor_02       |
                               |  - ...             |
@@ -71,7 +71,7 @@ python3 naming_server.py --host 127.0.0.1 --port 8000
 Open a **second** terminal and run:
 
 ```bash
-python3 central_monitor.py
+python3 auction_server.py
 ```
 
 You should see a log message confirming registration with the Naming Server.
@@ -81,14 +81,14 @@ You should see a log message confirming registration with the Naming Server.
 Open a **third** terminal and run the first sensor:
 
 ```bash
-python3 sensor_client.py --id sensor_01 --location "Building A, Floor 1"
+python3 bidder_client.py --id sensor_01 --location "Building A, Floor 1"
 ```
 
 Open additional terminals for more sensors:
 
 ```bash
-python3 sensor_client.py --id sensor_02 --location "Building A, Floor 2"
-python3 sensor_client.py --id sensor_03 --location "Building A, Floor 3"
+python3 bidder_client.py --id sensor_02 --location "Building A, Floor 2"
+python3 bidder_client.py --id sensor_03 --location "Building A, Floor 3"
 ```
 
 ### Sensor Client Options
@@ -144,16 +144,16 @@ Start the Naming Server, Central Monitor, and three sensors:
 python3 naming_server.py
 
 # Terminal 2
-python3 central_monitor.py
+python3 auction_server.py
 
 # Terminal 3
-python3 sensor_client.py --id sensor_01 --location "Floor 1"
+python3 bidder_client.py --id sensor_01 --location "Floor 1"
 
 # Terminal 4
-python3 sensor_client.py --id sensor_02 --location "Floor 2"
+python3 bidder_client.py --id sensor_02 --location "Floor 2"
 
 # Terminal 5
-python3 sensor_client.py --id sensor_03 --location "Floor 3" --lag
+python3 bidder_client.py --id sensor_03 --location "Floor 3" --lag
 ```
 
 **`--lag` on sensor_03** adds a random 0.5–2.0 second delay before each alert.
@@ -200,8 +200,8 @@ All sensors will display the **same ordered sequence**, demonstrating distribute
 | File | Purpose |
 |------|---------|
 | `naming_server.py` | DNS-like directory service (port 8000) |
-| `central_monitor.py` | Core server that orders alerts (port 9000) |
-| `sensor_client.py` | Interactive sensor node |
+| `auction_server.py` | Core server that orders alerts (port 9000) |
+| `bidder_client.py` | Interactive sensor node |
 | `lamport_clock.py` | Logical clock implementation |
 | `message_protocol.py` | JSON message builders and validators |
 | `network_layer.py` | TCP socket wrappers |

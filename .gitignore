@@ -3,4 +3,5 @@ CODEX_PROMPT.md
 DEAN_Project_Context.md
 GITHUB_DESCRIPTION.md
 __pycache__/*
-
+*.pdf
+*/__pycache__/*
